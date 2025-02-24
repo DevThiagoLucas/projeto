@@ -45,6 +45,8 @@ body {
 
   /*Cobre toda a área visível para eliminar espaços vazios*/
   background-size: cover;
+  /*Preenche os espaços em vazio na parte de cime e baixo*/
+  height: 100vh;
 }
 
 body * {
@@ -55,9 +57,8 @@ body * {
 
 /*Não é necessário colocar altura no CSS na maioria dos casos*/
 #container {
-  /*border: 1px solid red;
-  /*Centraliza a caixa*/
-  width: 100%;
+
+  width: 100%; /*Preenche os espaços vazios das laterais*/
   max-width: 588px;
   margin: 56px auto 0px;
   display: block;
@@ -83,8 +84,7 @@ body * {
 }
 
 /*Switchs*/
-#switch{
-
+#switch {
   width: 64px;
   /*Torna-se o parâmetro da posição absoluta de todos os elementos internos*/
   position: relative;
@@ -106,7 +106,7 @@ body * {
   transform: translateY(-50%);
 }
 
-.light #switch button{
+.light #switch button {
   right: 0;
   left: initial;
 }
@@ -189,4 +189,14 @@ footer {
   padding: 24px 0;
   text-align: center;
   font-size: 10px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/bg-desktop.jpg);
+  }
+
+  .light{
+    --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
 }
