@@ -57,7 +57,8 @@ body * {
 #container {
   /*border: 1px solid red;
   /*Centraliza a caixa*/
-  width: 360px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px;
   display: block;
   padding: 0 24px;
