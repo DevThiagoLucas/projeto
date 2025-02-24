@@ -1,0 +1,194 @@
+/*Retira as propriedades padrão do navegador*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: white;
+  --bg-url: url(./assets/bg-mobile.jpg);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.1);
+  --hover-color: rgba(255, 255, 255, 0.05);
+  --highlight-color: rgba(255, 255, 255, 0.2);
+  --switch-bg-url: url(assets/moon-stars.svg);
+}
+
+.light {
+  --text-color: black;
+  --bg-url: url(./assets/bg-mobile-light.jpg);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --hover-color: rgba(0, 0, 0, 0.02);
+  --highlight-color: rgba(0, 0, 0, 0.1);
+  --switch-bg-url: url(assets/sun.svg);
+}
+
+/*Simplificação do código abaixo:
+Modelo: background: color image repeat position/size
+Exemplo:
+body{
+  background: url(./assets/bg-mobile.jpg) no-repeat top center/cover
+}
+*/
+
+body {
+  /*Aplica a imagem com várias repetições*/
+  background-image: var(--bg-url);
+
+  /*Tira as repetições da imagem*/
+  background-repeat: no-repeat;
+
+  /*Muda o parâmetro de localização da imagem para que ela comece a partir do topo da tela e logo após centraliza*/
+  background-position: top center;
+
+  /*Cobre toda a área visível para eliminar espaços vazios*/
+  background-size: cover;
+}
+
+body * {
+  font-family: "Inter", serif;
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+
+/*Não é necessário colocar altura no CSS na maioria dos casos*/
+#container {
+  /*border: 1px solid red;
+  /*Centraliza a caixa*/
+  width: 360px;
+  margin: 56px auto 0px;
+  display: block;
+  padding: 0 24px;
+}
+
+/*Profile*/
+#profile {
+  text-align: center;
+
+  /*Preenchimento*/
+  padding: 24px;
+}
+
+#profile img {
+  width: 112px;
+}
+
+#profile p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/*Switchs*/
+#switch{
+
+  width: 64px;
+  /*Torna-se o parâmetro da posição absoluta de todos os elementos internos*/
+  position: relative;
+  margin: 4px auto;
+}
+#switch button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  /*Adiciona Camadas aos elementos*/
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /*Gerencia essas camadas, quando maior o número maior a prioridade de visibilidade*/
+  z-index: 1;
+  /*Alinhamento*/
+  transform: translateY(-50%);
+}
+
+.light #switch button{
+  right: 0;
+  left: initial;
+}
+
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 1px solid var(--stroke-color);
+  background: var(--surface-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+/* Links */
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  /*Espaçamento entre elementos conectados na lista*/
+  gap: 16px;
+  padding: 24px;
+}
+
+ul li a {
+  /*Cria uma linha(eixo) no centro do quadrado*/
+  display: flex;
+
+  /**Alinhamento horizontal*/
+  justify-content: center;
+
+  /*Alinhamento vertical*/
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+
+  /*Embaçado */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  /*Tira o sublinhado*/
+  text-decoration: none;
+  /*Espessura da fonta*/
+  font-weight: 500;
+  /*Torna a transição entre os efeitos do PRESSIONADO mais suaves*/
+  transition: all 0.2s;
+}
+
+/*pseudo-selector*/
+/*Alterações no elemento quando passar o mouse em cima*/
+ul li a:hover {
+  border: 1.5px solid var(--text-color);
+  background: var(--hover-color);
+}
+
+#social-links {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0px;
+  font-size: 24px;
+}
+#social-links a {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 16px;
+  /*Transforma o quadrado numa bola*/
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+}
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+}
+
+footer a {
+  font-weight: normal;
+}
