@@ -187,8 +187,5 @@ ul li a:hover {
 footer {
   padding: 24px 0;
   text-align: center;
-}
-
-footer a {
-  font-weight: normal;
+  font-size: 10px;
 }

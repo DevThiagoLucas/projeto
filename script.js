@@ -10,5 +10,14 @@ function toggleMode() {
   } else {
     img.setAttribute("src", "./assets/Avatar.png")
   }
+
+  if (html.classList.contains('light')) {
+    img.setAttribute('alt', 'Imagem Não Encontrada')
+  }
+
+  else {
+    img.setAttribute("alt", "Imagem Não Encontrada")
+  }
+
   
 }
